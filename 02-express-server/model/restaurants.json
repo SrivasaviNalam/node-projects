@@ -1,0 +1,20 @@
+[{
+    "name": "KFC",
+    "location": "rajahmundry",
+    "costForTwo": 500
+},
+{
+    "name": "Green Cafe",
+    "location": "hyderabad",
+    "costForTwo": 200
+},
+{
+    "name": "Cocofit",
+    "location": "pune",
+    "costForTwo": 200
+},
+{
+    "name": "Udupi",
+    "location": "rajahmundry",
+    "costForTwo": 300
+}]
