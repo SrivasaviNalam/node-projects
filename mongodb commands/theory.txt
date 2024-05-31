@@ -1,0 +1,56 @@
+Mongodb saves data in the json format
+Query Methods:
+
+db
+    get list db ==> show dbs
+    create / change db ==> use dbName
+    delete db
+
+collection (set of documents)
+    get list collection ==> show collections
+    create collection  ==> db.createCollection('restaurant')
+    delete collection  ==> db.(collectionName).drop() ...here it will be db.restaurant.drop()x
+
+documents (data) BSON data format- Binary json (in these we have different data types like integers, double , float but in json we dont have these many data types)
+    add data
+        one ==> insertOne({..})
+            ObjectId('66597dd533f6aa5a45cdcdf6')  ==> 66597dd5 33f6aa5a45 cdcdf6
+                => This is for identification for record  ==> it is a primary key (Unique, Not a null)
+                => after adding the data we will get the Object id created by the monogo.
+                => ObjectId ==> 12 Bytes i.e 24 char ==> hex code
+                => hex code contains 0 to 16 like (0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f)
+                ==>  0  1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  ==> Decimal
+                ==>  0  1   2   3   4   5   6   7   8   9   a   b   c   d   e   f   ==> Hex Decimal Number
+                ==> in these 12Bytes 
+                    ==> first 4 bytes ==> 8 characters ==> timestamp (measured in seconds since the Unix epoch) ==> unic epoch means measured from 01-01-1970
+                    ==> Next 5 bytes ==> 10 characters ==> Randomly value generated once per process
+                    ==> Next 3 bytes ==> 6 characters ==> Incrementing counter, initialized to a random value
+
+        many ==> insertMany([{...},{...}])
+    read data
+        ==> find() ==> to read the data ==> db.collectionName.find() - gives all the records
+        ==> find({}) ==> {} ==> filter ==> db.collectionName.find({category:'jewelery'})
+        ==> count() ==> to get the count ==> db.collectionName.find({category:'jewelery'}).count()
+    how to project data (how to get specific data)
+        ==> if u want to get/need to project only particular data/fields
+        ==> db.collectionName.find({category:'jewelery'},{}) ==> the second {} is for projection
+        ==> 1 -> if we want, 0 -> if we don't want
+        ==> ex : db.collectionName.find({category:'jewelery'}, {title:1})
+    delete data
+
+mongodb operators
+    update record
+    rename fields
+
+In Database we will have CRUD operations
+
+C - Create record
+R - Read record
+U - Update record
+D - Delete record
+
+** when u create a database atleast one collection needs to be created. 
+   If not, then that db wont show in the cmd.
+
+** Mongodb uses the BSON format to save the data which is Binary JSON format
+mongodb://localhost:27017
