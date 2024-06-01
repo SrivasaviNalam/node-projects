@@ -33,12 +33,22 @@ documents (data) BSON data format- Binary json (in these we have different data 
         ==> count() ==> to get the count ==> db.collectionName.find({category:'jewelery'}).count()
     how to project data (how to get specific data)
         ==> if u want to get/need to project only particular data/fields
-        ==> db.collectionName.find({category:'jewelery'},{}) ==> the second {} is for projection
+        ==> db.collectionName.find({category:'jewelery'},{}) ==> the second {} is for projection ==> in projection we can add what are the fields we add
         ==> 1 -> if we want, 0 -> if we don't want
         ==> ex : db.collectionName.find({category:'jewelery'}, {title:1})
-    delete data
 
-mongodb operators
+        items less than 100 ==> we need to use operators
+        ==> db.collectionName.find({category:'jewelery',price:{$lt:100}}, {title:1,price:1})
+    delete data
+        ==> db.collectionName.deleteOne({}) ==> 1st find record
+        ==> db.collectionName.deleteMany({}) ==> delete entire record
+        ==> filtering the records to b deleted
+            ==> db.collectionName.deleteOne({category:'jewelery'})
+            ==> db.collectionName.deleteMany({category:'jewelery'})
+
+mongodb operators 
+    ==> Query operators
+    ==> Projection operators
     update record
     rename fields
 
